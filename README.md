@@ -1,7 +1,9 @@
+
+
 AWS GitOps Platform 🚀
 
 Production-grade multi-environment GitOps platform on AWS EKS with Terraform IaC, Helm packaging, and Argo CD continuous delivery.
-
+<img width="1392" height="709" alt="gitops diagram" src="https://github.com/user-attachments/assets/08f2d180-a82f-475e-960f-b83bd875fe68" />
 🎯 What it does
 Deploys a full-stack internal orders/inventory platform with:
 
@@ -65,6 +67,7 @@ Orchestration	Kubernetes
 GitOps	Argo CD (App-of-Apps)
 CI/CD	GitHub Actions
 Observability	CloudWatch, Prometheus, Grafana
+<img width="1915" height="919" alt="Frontend" src="https://github.com/user-attachments/assets/e19ef4b0-a5a4-407b-beeb-bfc08d65f0c6" />
 🔄 Workflow
 text
 Developer ──► PR to main ──► GitHub Actions ──► Build/Push ECR
