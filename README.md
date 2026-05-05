@@ -67,47 +67,9 @@ Orchestration	Kubernetes
 GitOps	Argo CD (App-of-Apps)
 CI/CD	GitHub Actions
 Observability	CloudWatch, Prometheus, Grafana
+
 <img width="1915" height="919" alt="Frontend" src="https://github.com/user-attachments/assets/e19ef4b0-a5a4-407b-beeb-bfc08d65f0c6" />
 🔄 Workflow
-text
-Developer ──► PR to main ──► GitHub Actions ──► Build/Push ECR
-                                                  │
-                                        Update GitOps repo ──► Argo CD
-                                                  │
-                                        Auto-sync to EKS ──► Live apps
-📊 Status
-Environment	Status	URL
-Dev	🟢 Live	https://dev.yourdomain.com
-Staging	🔄 Building	https://staging.yourdomain.com
-Prod	🟡 Planned	https://prod.yourdomain.com
-🎯 Resume Highlights
-Production GitOps: Argo CD with App-of-Apps multi-environment pattern
-
-Secure CI/CD: GitHub Actions OIDC → AWS (no keys)
-
-Infrastructure as Code: Terraform multi-module VPC/EKS/RDS
-
-Helm-native: Production-grade Kubernetes deployments
-
-Cost-aware: Single-node dev, scalable prod
-
-📖 Documentation
-Architecture
-
-Destroy Guide
-
-Cost Optimization
-
-🤝 Contributing
-Fork repo
-
-Create feature branch (git checkout -b feature/AmazingFeature)
-
-Commit (git commit -m 'Add some AmazingFeature')
-
-Push (git push origin feature/AmazingFeature)
-
-Open Pull Request
 
 📄 License
 MIT © 2026 Idan Uziel
