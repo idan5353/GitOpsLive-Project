@@ -1,18 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aws-gitops-platform-dev
+  name: frontend-dev
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/idan5353/GitOpsLive-Project.git
     targetRevision: HEAD
-    path: apps/dev
+    path: charts/frontend
+    helm:
+      valueFiles:
+        - values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: dev
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
