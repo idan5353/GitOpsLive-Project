@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  repository: 851725642392.dkr.ecr.us-east-1.amazonaws.com/aws-gitops-platform/frontend
+  tag: "v0.1.0"
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+containerPort: 80
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "64Mi"
+  limits:
+    memory: "128Mi"
+
+labels:
+  appPartOf: aws-gitops-platform
+
+healthPath: /healthz

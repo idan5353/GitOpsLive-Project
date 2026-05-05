@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: 851725642392.dkr.ecr.us-east-1.amazonaws.com/aws-gitops-platform/backend
+  tag: "v0.1.0"
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+containerPort: 8000
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    memory: "256Mi"
+
+probes:
+  readiness:
+    path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 2
+    failureThreshold: 3
+  liveness:
+    path: /health
+    initialDelaySeconds: 15
+    periodSeconds: 20
+    timeoutSeconds: 2
+    failureThreshold: 3
+
+labels:
+  appPartOf: aws-gitops-platform

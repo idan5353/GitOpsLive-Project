@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: dev
+  labels:
+    app: backend
+    app.kubernetes.io/name: backend
+    app.kubernetes.io/part-of: aws-gitops-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+        app.kubernetes.io/name: backend
+        app.kubernetes.io/part-of: aws-gitops-platform
+    spec:
+      containers:
+        - name: backend
+          image: 851725642392.dkr.ecr.us-east-1.amazonaws.com/aws-gitops-platform/backend:v0.1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 2
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              memory: "256Mi"
