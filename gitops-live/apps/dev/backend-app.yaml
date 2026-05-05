@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/idan5353/GitOpsLive-Project.git
-    targetRevision: HEAD
+    targetRevision: main
     path: charts/backend
     helm:
       valueFiles:

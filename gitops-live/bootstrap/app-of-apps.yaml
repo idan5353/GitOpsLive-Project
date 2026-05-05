@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/idan5353/GitOpsLive-Project.git
-    targetRevision: HEAD
+    targetRevision: main
     path: apps/dev
   destination:
     server: https://kubernetes.default.svc
